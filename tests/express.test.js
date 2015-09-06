@@ -1,3 +1,5 @@
+// all tests should fail currently
+
 /**
 Steps to run these tests:
 1. go to you terminal and access this file

@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(logger('dev'));
 
-var db = mongoskin.db('@localhost:27017/loopi', {
+var db = mongoskin.db('mongodb://@localhost:27017/test', {
   safe: true
 });
 

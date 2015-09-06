@@ -13,7 +13,7 @@ describe('express rest api server', function () {
   var id; // the id of a document in mongodb
 
   it('posts an object', function (done) {
-    superagent.post('http://localhost:3000/collections/test')
+    superagent.post('http://localhost:3000/collections/test/')
     .send({
       name: 'Ryan',
       email: 'mobileupstate@gmail.com'
@@ -41,7 +41,7 @@ describe('express rest api server', function () {
   });
 
   it('retrieves a collection', function (done) {
-    superagent.get('http://localhost:3000/collections/test')
+    superagent.get('http://localhost:3000/collections/test/')
     .end(function (e, res) {
       console.log(res.body);
       expect(e).to.eql(null);
@@ -55,7 +55,7 @@ describe('express rest api server', function () {
   });
 
   it('updates an object', function (done) {
-    superagent.put('http://localhost:3000/collections/test' + id)
+    superagent.put('http://localhost:3000/collections/test/' + id)
     .send({
       name: 'Byrdan Fox',
       email: 'byrdan@loopi.io'

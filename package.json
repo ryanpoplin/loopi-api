@@ -1,0 +1,23 @@
+{
+  "name": "loopi-api",
+  "version": "1.0.0",
+  "description": "Loopi IO REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ryanpoplin/loopi-api.git"
+  },
+  "author": "Loopi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ryanpoplin/loopi-api/issues"
+  },
+  "homepage": "https://github.com/ryanpoplin/loopi-api",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "superagent": "^1.3.0"
+  }
+}

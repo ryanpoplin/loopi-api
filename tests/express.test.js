@@ -1,3 +1,5 @@
+// all tests should fail currently
+
 /**
 Steps to run these tests:
 1. go to you terminal and access this file
@@ -29,7 +31,7 @@ describe('express rest api server', function () {
   });
 
   it('retrieves an object', function (done) {
-    superagent.get('http://localhost:3000/collections/test/' + id);
+    superagent.get('http://localhost:3000/collections/test/' + id)
     .end(function (e, res) {
       console.log(res.body);
       expect(e).to.eql(null);

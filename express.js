@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(logger('dev'));
 
+// url to the mongodb server...
 var db = mongoskin.db('mongodb://@localhost:27017/test', {
   safe: true
 });
@@ -34,6 +35,7 @@ app.post('/collections/:collectionName', function (req, res, next) {
 });
 
 app.get('/collections/:collectionName', function (req, res, next) {
+  // consider removing the array wrapping here
   req.collection.find({}, { limit: 10, sort: { '_id': -1 } }).toArray(function (e, results) {
     if (e) return next(e);
     res.send(results);

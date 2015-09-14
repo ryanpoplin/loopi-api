@@ -1,0 +1,41 @@
+<!-- just a test file -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>...</title>
+  </head>
+  <body>
+    <svg height="5000" width="5000">
+      <!-- will be dynamic values... -->
+      <path d="" id="pathFromArrays"></path>
+    </svg>
+    <script type="text/javascript" src="js/rj3/rj3.js"></script>
+    <script type="text/javascript">
+      // // will be moved to another file...
+      // var arrayData = [
+      //   [10, 130],
+      //   [100, 60],
+      //   [190, 160],
+      //   [280, 10]
+      // ],
+      // lineGenerator = rj3.svg.line(),
+      // path = lineGenerator(arrayData);
+      // // a better naming convention?...
+      // document.getElementById('pathFromArrays').setAttribute('d', path);
+      (function() {
+        var objectData = [
+          {x: 520, y: 190},
+          {x: 110, y: 90},
+          {x: 230, y: 600},
+          {x: 280, y: 20}
+        ],
+        lineGenerator = rj3.svg.line()
+        .x(function(d) {return d.x;})
+        .y(function(d) {return d.y;}),
+        path = lineGenerator(objectData);
+        document.getElementById('pathFromArrays').setAttribute('d', path);
+      }());
+    </script>
+  </body>
+</html>

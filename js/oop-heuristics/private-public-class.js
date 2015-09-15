@@ -24,4 +24,33 @@
   // error handling for calling a private prop. or meth. of a class?
   // console.log(classBlueprint.additionCalc());
 
+  var JSBase = function() {
+    this.speak = function(message) {
+      console.log(message);
+    };
+    this.shout = function(sound) {
+      console.log("JSBase");
+      console.log(sound);
+    };
+  };
+
+  var JSDerived = function(JSBase) {
+    var jsBase = new JSBase();
+    this.speak = function(message) {
+      jsBase.speak(message);
+    };
+    this.shout = function(sound) {
+      console.log("JSDerived");
+      console.log(sound);
+    };
+  };
+
+  var jsBase = new JSBase();
+  var jsDerived = new JSDerived(JSBase);
+
+  jsBase.speak("JSBase Class");
+  jsDerived.speak("JSDerived Class");
+
+  jsDerived.shout("AHHH!");
+
 }());

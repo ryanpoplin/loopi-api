@@ -1,5 +1,9 @@
 (function() {
 
+  'use strict';
+
+  // old school non OOP program example!
+
   var borough,
       county,
       population,

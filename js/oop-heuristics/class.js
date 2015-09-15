@@ -1,41 +1,33 @@
 (function() {
 
-  // a very structured program, still non OOP...
-
   'use strict';
 
-  var boroughs,
-      sumOfPopulation = 0,
-      sumOfLandAreaInSm = 0,
-      i;
+  // no magic strings...
+  var landAreaSkArguments = {
+    one: 58998811,
+    two: 0.5
+  };
 
-  // JS equiv of a struct...
-  function Borough(name, county, population, landAreaSm) {
+  // class like feature in JS...
+  var Borough = function(name, county, population, landAreaSm) {
     this.name = name;
     this.county = county;
     this.population = population,
     this.landAreaSm = landAreaSm
-  }
+    this.calculateLandAreaSk = function() {
+      return landAreaSkArguments.one * landAreaSm + landAreaSkArguments.two;
+    }
+  };
 
-  function calculateLandAreaSk(aBorough) {
-    return 2.58998811 * aBorough.landAreaSm + 0.5;
-  }
-
-  // create instances of that class or creating structs...
-  var manhattan = new Borough("Manhattan", "New York", 1619090, 23),
-      theBronx = new Borough("The Bronx", "Bronx", 1408473, 42),
-      brooklyn = new Borough("Brooklyn", "Kings", 2565635, 71),
-      queens = new Borough("Queens", "Queens", 2272771, 109),
-      statenIsland = new Borough("Staten Island", "Richmond", 470728, 58)
-
-  boroughs = [
-    manhattan,
-    theBronx,
-    brooklyn,
-    queens,
-    statenIsland
+  var boroughs = [
+    new Borough("Manhattan", "New York", 1619090, 23),
+    new Borough("The Bronx", "Bronx", 1408473, 42),
+    new Borough("Brooklyn", "Kings", 2565635, 71),
+    new Borough("Queens", "Queens", 2272771, 109),
+    new Borough("Staten Island", "Richmond", 470728, 58)
   ];
 
+  // this is a very ugly part about JS, templates to the rescue?
   for (i = 0; i < 5; i++) {
     console.log("The borough of " + boroughs[i].name +
                 " is in the county of " + boroughs[i].county +

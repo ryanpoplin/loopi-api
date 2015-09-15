@@ -1,5 +1,7 @@
 (function() {
 
+  // a very structured program, still non OOP...
+
   'use strict';
 
   var boroughs,
@@ -7,13 +9,16 @@
       sumOfLandAreaInSm = 0,
       i;
 
-  // represents a structure in a way...
   function Borough(name, county, population, landAreaSm) {
     this.name = name;
     this.county = county;
     this.population = population,
     this.landAreaSm = landAreaSm
   };
+
+  function calculateLandAreaSk(aBorough) {
+    return 2.58998811 * aBorough.landAreaSm + 0.5;
+  }
 
   var manhattan = new Borough("Manhattan", "New York", 1619090, 23),
       theBronx = new Borough("The Bronx", "Bronx", 1408473, 42),
@@ -33,7 +38,8 @@
     console.log("The borough of " + boroughs[i].name +
                 " is in the county of " + boroughs[i].county +
                 " and has a population of " + boroughs[i].population +
-                " people " + "and a land area of " + boroughs[i].landAreaSm + " square miles.");
+                " people " + "and a land area of " + boroughs[i].landAreaSm + " square miles." +
+                " Also, this borough has a land area of " + calculateLandAreaSk(boroughs[i]) + " square kilometers." );
     sumOfPopulation += boroughs[i].population;
     sumOfLandAreaInSm += boroughs[i].landAreaSm;
   }
